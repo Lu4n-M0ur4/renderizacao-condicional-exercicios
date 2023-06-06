@@ -3,6 +3,8 @@ import styled, { createGlobalStyle } from "styled-components";
 import TelaLogin from "./components/TelaLogin/TelaLogin";
 import TelaCadastro from "./components/TelaCadastro/TelaCadastro";
 import TelaPrincipal from "./components/TelaPrincipal/TelaPrincipal.js";
+import TelaCadastroEndereco from "./components/TelaCadastroEndereco/TelaCadastroEndereco";
+
 
 const GlobalStyled = createGlobalStyle`
   html {
@@ -20,7 +22,7 @@ const MainContainer = styled.main`
 `
 
 function App() {
-  const [telaAtual, setTelaAtual] = useState("TelaLogin")
+  const [telaAtual, setTelaAtual] = useState("TelaCadastroEndereco")
 
   const mudarTela = (novaTela) => {
     setTelaAtual(novaTela)
@@ -33,10 +35,13 @@ function App() {
 
       case "TelaCadastro":
         return <TelaCadastro mudarTela={mudarTela} />;
-
-      case "TelaPrincipal":
-        return <TelaPrincipal mudarTela={mudarTela} />
-
+        
+        case "TelaCadastroEndereco":
+          return <TelaCadastroEndereco mudarTela={mudarTela} />
+        
+        case "TelaPrincipal":
+          return <TelaPrincipal mudarTela={mudarTela} />
+          
       default:
         return <p>Tela inválida</p>
     }
